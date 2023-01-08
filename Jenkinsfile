@@ -11,5 +11,15 @@ pipeline {
       }
     }
 
+    stage('unit-test') {
+      steps {
+        script {
+          docker.image("borovensky/node_app:${env.BUILD_ID}").inside {c ->
+          sh 'npm run test'}
+        }
+
+      }
+    }
+
   }
 }
