@@ -8,7 +8,8 @@ COPY package*.json ./
 RUN npm install
 
 #Bundle app source
-COPY . .
+COPY server.js ./
+COPY server.test.js ./
 
 EXPOSE 8090
 CMD ["node", "server.js"]
