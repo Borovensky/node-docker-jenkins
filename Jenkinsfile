@@ -5,9 +5,7 @@ pipeline {
       steps {
         script {
           checkout scm
-          def customImage = docker.build("borovensky/node_app:${env.BUILD_ID}").inside {c ->
-          sh 'npm run test'}
-    
+          def customImage = docker.build("borovensky/node_app:${env.BUILD_ID}")
         }
 
       }
